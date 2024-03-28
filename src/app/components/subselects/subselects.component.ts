@@ -56,7 +56,7 @@ export class SubselectsComponent implements OnInit {
       )
       .subscribe((data: any) => {
         this.datatable = data.data;
-        console.log(this.datatable[0]);
+        console.log(this.datatable.length);
       });
   }
 
