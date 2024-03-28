@@ -1,0 +1,64 @@
+<div>
+  <div class="row">
+    <div
+      class="col-4 mb-3"
+      *ngFor="let item of numberSerach?.selects; let i = index"
+    >
+      <select
+        class="form-select"
+        aria-label="Default select example"
+        (change)="changeSelect($event, i)"
+      >
+        <option>Seleccione</option>
+        <option value="{{ option._id }}" *ngFor="let option of item.data">
+          {{ option.title }}
+        </option>
+      </select>
+    </div>
+    <!-- <div class="col-4">
+      <select class="form-select" aria-label="Default select example">
+        <option selected>Open this select menu</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </select>
+    </div> -->
+  </div>
+  <div class="row pt-3">
+    <div class="col-10">
+      <button
+        s
+        type="button"
+        (click)="searchContractsEntities()"
+        class="btn btn-info btn-block w-100"
+      >
+        Buscar resultados
+      </button>
+    </div>
+
+    <div class="col-2">
+      <button
+        type="button"
+        (click)="clearFilters()"
+        class="btn btn-danger btn-block w-100"
+      >
+        Limpiar filtros
+      </button>
+    </div>
+  </div>
+  <hr />
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of datatable">
+        <th scope="row">{{ item._id }}</th>
+        <td>{{ item.name }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
